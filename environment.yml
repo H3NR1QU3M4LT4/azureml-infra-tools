@@ -1,0 +1,8 @@
+name: azuremlutils
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - poetry=1.4.0
+  - python=3.10.12
+  - urllib3=1.26.9
