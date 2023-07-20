@@ -1,10 +1,14 @@
 # azuremlutils
-azuremlutils is a Python utility package aimed at simplifying and streamlining workflows on Azure Machine Learning 
-(Azure ML). It provides a set of high-level APIs that make it easy to set up Azure ML infrastructure such as clusters 
-and environments, authenticate with Azure ML, and manage datasets. This package is designed with a focus on 
-user-friendliness and efficiency, allowing users to achieve complex Azure ML tasks with minimal code. Whether you are 
-an AI researcher, a data scientist, or a machine learning engineer, azuremlutils can help you seamlessly leverage the 
-power of Azure ML and accelerate your machine learning projects.
+
+`azuremlutils` is a Python utility package designed to simplify and streamline your Azure Machine Learning (Azure ML) 
+workflows. Our goal is to provide a set of high-level APIs that help set up Azure ML infrastructure, manage 
+authentication, and handle datasets in an intuitive and user-friendly manner. 
+
+Whether you are an AI researcher, a data scientist, or a machine learning engineer, `azuremlutils` can help you 
+seamlessly leverage the power of Azure ML and accelerate your machine learning projects.
+
+You can check the project in [GitHub page](https://github.com/H3NR1QU3M4LT4/azuremlutils).
+Also, you can find more information about Azure ML [here](https://azure.microsoft.com/en-us/services/machine-learning/).
 
 ## Installation
 
@@ -52,15 +56,15 @@ more usage examples, a section about the project's dependencies, instructions fo
 
 
 # Versioning
-The versioning system that you mentioned, 0.0.0.0, is known as semantic versioning (SemVer). It's a versioning scheme 
-for software that aims to convey meaning about the underlying changes in a release.
+The versioning system that we use is known as semantic versioning (SemVer). It's a versioning scheme for software 
+that aims to convey meaning about the underlying changes in a release.
 
 In general, SemVer's structure is MAJOR.MINOR.PATCH, where:
 
-* MAJOR version increments indicate incompatible API changes. This means a user may need to make changes to their 
-code to use the new version.
-* MINOR version increments indicate the addition of functionality in a backwards-compatible manner. This means new 
-features were added but existing functionality has not been removed or altered in a way that would break existing 
-usage.
-* PATCH version increments indicate backwards-compatible bug fixes. This means that issues or bugs within the software 
-have been fixed and it should be even more reliable without any changes to the existing API or functionality.
+* MAJOR version increments indicate incompatible API changes.
+* MINOR version increments indicate the addition of functionality in a backwards-compatible manner.
+* PATCH version increments indicate backwards-compatible bug fixes.
+For the versions available, see the tags on this repository.
+
+# Contact
+For more information on this project, you can visit the project's [GitHub page](https://github.com/H3NR1QU3M4LT4/azuremlutils).
