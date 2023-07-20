@@ -16,7 +16,7 @@ load_dotenv()
 
 def setup_infrastructure(cfg, original_dir: str) -> tuple[AzureCredential, Data, AmlCompute, Environment]:
     """Set up the environment to run the pipeline
-    :param cfg: configuration file
+    :param cfg: hydra configuration file
     :param original_dir: (str) original directory
     :return: azure_credential, text_bert_intentions, cpu_cluster, pipeline_env
     """
