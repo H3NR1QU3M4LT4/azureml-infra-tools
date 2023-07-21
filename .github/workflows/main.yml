@@ -1,13 +1,42 @@
-- name: PyPI Poetry Publish
-  # You may pin to the exact commit or the version.
-  # uses: code-specialist/pypi-poetry-publish@ec93221fb6b8d9d7f2e1e4866840a5df2f8588e3
-  uses: code-specialist/pypi-poetry-publish@v1.2
-  with:
-    # Access Token for GitHub with write access on the repository
-    ACCESS_TOKEN: pypi-AgEIcHlwaS5vcmcCJDEzOGQyZmJmLWMxN2UtNGRlMC1hNmVlLTdiZWMzN2U1N2VkMgACFFsxLFsiYXp1cmVtbHV0aWxzIl1dAAIsWzIsWyIzMjljMzUzZC05NzJjLTQwZjItYTVjYy1kMjdiNDRkMThiNjgiXV0AAAYgS6NR1_XYYWnRnUogCsWSxxZLkfBdKBzRvkiJff7dwWg
-    # Python Version
-    PYTHON_VERSION: 3.10.12
-    # Directory of the package
-    PACKAGE_DIRECTORY: azuremlutils
-    POETRY_VERSION: 1.4.0
-    BRANCH: main
+name: Push
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10.12']
+        poetry-version: ['1.4.0']
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.1.4
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dependencies
+        run: poetry install
+  code-quality:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10.12']
+        poetry-version: ['1.4.0']
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.1.4
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dependencies
+        run: poetry install
