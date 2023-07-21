@@ -1,30 +1,61 @@
-name: Release
+name: release
+
 on:
-  release:
-    types:
-      - created
+  workflow_dispatch:
 
 jobs:
-  publish:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.10']
-        poetry-version: ['1.4.0']
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+  releaase:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.1.4
+          python-version: "3.9"
+
+      - name: Check-out repository
+        uses: actions/checkout@v3
         with:
-          poetry-version: ${{ matrix.poetry-version }}
-      - name: Publish
+          fetch-depth: 0
+
+      - name: Load cached Poetry installation
+        id: cached-poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.local  # the path depends on the OS
+          key: poetry  # increment to reset cache
+
+      - name: Install poetry
+        if: steps.cached-poetry.outputs.cache-hit != 'true'
+        uses: snok/install-poetry@v1
+
+      - name: "Restore cached dependencies"
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+      - name: Install package
+        run: poetry install
+
+      - name: Use Python Semantic Release to prepare release
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          # This token is created automatically by GH Actions
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            poetry run semantic-release publish
+
+      - name: Test install from TestPyPI
+        run: |
+            pip install \
+            --index-url https://test.pypi.org/simple/ \
+            --extra-index-url https://pypi.org/simple \
+            <package_name>
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
