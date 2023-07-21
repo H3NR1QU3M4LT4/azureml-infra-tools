@@ -1,4 +1,4 @@
-name: azuremlutils
+name: azureml-infra-tools
 channels:
   - defaults
   - conda-forge

@@ -3,7 +3,7 @@
 from azure.ai.ml.constants import AssetTypes
 from azure.ai.ml.entities import Data
 
-from azuremlutils.credential import AzureCredential
+from azureml_infra_tools.credential import AzureCredential
 
 
 # import time

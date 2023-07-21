@@ -2,12 +2,12 @@
 """
 from azure.ai.ml.entities import AmlCompute
 
-from azuremlutils.credential import AzureCredential
+from azureml_infra_tools.credential import AzureCredential
 
 
 class AzureCluster:
     """Create the cluster
-    :param azure_credential: (AzureCredential) azuremlutils credential
+    :param azure_credential: (AzureCredential) azureml_infra_tools credential
     :param compute_name: (str) compute name
     :param compute_type: (str) compute type
     :param size: size

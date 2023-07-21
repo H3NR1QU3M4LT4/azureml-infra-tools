@@ -5,7 +5,7 @@ from azure.ai.ml.entities import Environment, BuildContext
 
 class AzureEnvironment:
     """Create the environment
-    :param azure_credential: azuremlutils credential
+    :param azure_credential: azureml_infra_tools credential
     :param custom_env_name: custom environment name
     :param dependencies_dir: dependencies directory
     :param version: version

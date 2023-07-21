@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="my_package",
+    name="azureml-infra-tools",
     version="0.1.0",
     packages=find_packages(),
-    url="https://github.com/H3NR1QU3M4LT4/azuremlutils.git",
+    url="https://github.com/H3NR1QU3M4LT4/azureml-infra-tools.git",
     author="Henrique Malta",
     author_email="vlezyitalia@gmail.com",
-    description="azuremlutils is a Python package providing high-level APIs for Azure Machine Learning. "
+    description="azureml-infra-tools is a Python package providing high-level APIs for Azure Machine Learning. "
                 "It simplifies setup of Azure ML infrastructures, manages datasets, and streamlines authentication. "
                 "Designed for AI researchers, data scientists, and ML engineers, it boosts productivity and "
                 "accelerates Azure ML projects.",
