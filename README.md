@@ -1,6 +1,6 @@
-# azuremlutils
+# azureml-infra-tools
 
-`azuremlutils` is a Python utility package designed to simplify and streamline your Azure Machine Learning (Azure ML) 
+`azureml-infra-tools` is a Python utility package designed to simplify and streamline your Azure Machine Learning (Azure ML) 
 workflows. Our goal is to provide a set of high-level APIs that help set up Azure ML infrastructure, manage 
 authentication, and handle datasets in an intuitive and user-friendly manner. 
 
@@ -12,27 +12,31 @@ Also, you can find more information about Azure ML [here](https://azure.microsof
 
 ## Installation
 
-You can install the `azuremlutils` package via pip:
+You can install the `azureml-infra-tools` package via pip:
 
 ```shell
-pip install azuremlutils
+pip install azureml-infra-tools
 ```
 
 Or via poetry:
 
 ```shell
-poetry add azuremlutils
+poetry add azureml-infra-tools
 ```
 
 ## Usage
-Here is a simple example of how to use azuremlutils:
+Here is a simple example of how to use azureml-infra-tools:
 
 ```python
-from azuremlutils import setup_infrastructure
+from azureml_infra_tools import setup_infrastructure
 
 # Your original directory and configuration
-original_dir = <Your Original Directory>
-cfg = <Your Hydra Configuration>
+original_dir = < Your
+Original
+Directory >
+cfg = < Your
+Hydra
+Configuration >
 
 # Setting up the infrastructure
 azure_credential, data, compute, env = setup_infrastructure(cfg, original_dir)
@@ -67,4 +71,4 @@ In general, SemVer's structure is MAJOR.MINOR.PATCH, where:
 For the versions available, see the tags on this repository.
 
 # Contact
-For more information on this project, you can visit the project's [GitHub page](https://github.com/H3NR1QU3M4LT4/azuremlutils).
+For more information on this project, you can visit the project's [GitHub page](https://github.com/H3NR1QU3M4LT4/azureml-infra-tools).

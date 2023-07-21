@@ -1,7 +1,7 @@
 import pytest
 import os
 
-from azuremlutils.credential import AzureCredential
+from azureml_infra_tools.credential import AzureCredential
 
 
 class TestAzureCredential:

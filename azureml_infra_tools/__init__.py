@@ -6,10 +6,10 @@ import os
 from azure.ai.ml.entities import Data, AmlCompute, Environment
 from dotenv import load_dotenv
 
-from azuremlutils.cluster import AzureCluster
-from azuremlutils.credential import AzureCredential
-from azuremlutils.data import AzureData
-from azuremlutils.environment import AzureEnvironment
+from azureml_infra_tools.cluster import AzureCluster
+from azureml_infra_tools.credential import AzureCredential
+from azureml_infra_tools.data import AzureData
+from azureml_infra_tools.environment import AzureEnvironment
 
 load_dotenv()
 

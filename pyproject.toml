@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "azuremlutils"
-version = "0.1.0"
-description = "azuremlutils is a Python package providing high-level APIs for Azure Machine Learning. It simplifies setup of Azure ML infrastructures, manages datasets, and streamlines authentication. Designed for AI researchers, data scientists, and ML engineers, it boosts productivity and accelerates Azure ML projects."
+name = "azureml-infra-tools"
+version = "0.1.0a1"
+description = "azureml-infra-tools is a Python package providing high-level APIs for Azure Machine Learning. It simplifies setup of Azure ML infrastructures, manages datasets, and streamlines authentication. Designed for AI researchers, data scientists, and ML engineers, it boosts productivity and accelerates Azure ML projects."
 authors = ["Henrique Malta <vlezyitalia@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -16,6 +16,8 @@ python-dotenv = "^1.0.0"
 [tool.poetry.group.dev.dependencies]
 yapf = "^0.40.1"
 pylint = "^2.17.4"
+pytest = "^7.4.0"
+pytest-mock = "^3.11.1"
 
 [build-system]
 requires = ["poetry-core"]
