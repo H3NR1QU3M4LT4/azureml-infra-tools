@@ -1,5 +1,23 @@
 """ Azure Credential Class to authenticate with Azure Machine Learning Studio
+
+Main functionalities:
+The AzureCredential class provides authentication credentials for accessing Azure Machine Learning services. It uses the
+DefaultAzureCredential class to obtain the necessary credentials and the MLClient class to create a client object that
+can be used to interact with the Azure Machine Learning workspace specified by the subscription ID, resource group name,
+and workspace name provided as parameters to the constructor. The class also includes a method to check the connection
+to the workspace.
+
+Methods:
+- __init__: initializes the AzureCredential object and authenticates to the Azure Machine Learning workspace using the
+provided credentials.
+- check_connection: checks the connection to the Azure Machine Learning workspace and returns a list of workspace
+objects.
+
+Fields:
+- credential: an instance of the DefaultAzureCredential class used to obtain the necessary credentials.
+- ml_client: an instance of the MLClient class used to interact with the Azure Machine Learning workspace.
 """
+
 import logging
 from azure.ai.ml import MLClient
 
@@ -17,11 +35,6 @@ def _validate_input(subscription_id, resource_group_name, workspace_name):
 
 class AzureCredential:
     """Azure Credential Class
-    The AzureCredential class is designed to provide authentication credentials for accessing Azure Machine Learning
-    services. It uses the DefaultAzureCredential class from the 'azure.identity' module to obtain the necessary
-    credentials. The MLClient class from the azure.ai.ml module is then used to create a client object that can be
-    used to interact with the Azure Machine Learning workspace specified by the subscription ID, resource group name,
-    and workspace name provided as parameters to the constructor.
     @param subscription_id: (str) Azure subscription ID
     @param resource_group_name: (str) Azure resource group name
     @param workspace_name: (str) Azure Machine Learning workspace name
@@ -39,7 +52,7 @@ class AzureCredential:
                 resource_group_name=resource_group_name,
                 workspace_name=workspace_name,
             )
-            logging.debug('AzureCredential: Successfully authenticated to Azure Machine Learning workspace')
+            logging.info('AzureCredential: Successfully authenticated to Azure Machine Learning workspace')
         except Exception as e:
             logging.exception('AzureCredential: Failed to authenticate to Azure Machine Learning workspace', e)
             raise ValueError('Invalid Azure credentials')
