@@ -1,0 +1,21 @@
+data:
+  name: rpa-chatbot-assistant-intentions-csv
+  description: RPA Chatbot Assistant Intentions
+  version: 0.1.0
+  data_path: data/processed/data.csv
+
+cluster:
+  name: rpachat-cluster-m60
+  type: amlcompute
+  size: Standard_NV6
+  min_instances: 0
+  max_instances: 18
+  idle_time_before_scale_down: 180
+  tier: Dedicated
+
+environment:
+  name: rpachat-custom-env
+  dependencies_dir: src/dependencies
+  version: 1.2.0
+  tags: { "datasets": "2.13.1", "transformers": "4.30.2", "torch": "2.0.1" }
+  description: Custom environment for RPA Chatbot Assistant Intentions pipeline
